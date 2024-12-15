@@ -56,3 +56,59 @@ The dummy data was  crated from a ChatGPT which include 3 dataset Students Lists
 
 ### Conclusion
 This project successfully demonstrated the ability to clean and wrangle dataset. By applying systematic data cleaning and transformation techniques, the project delivered a high-quality dataset that can be leveraged for analysis, reporting, or integration into digital systems. The structured data provides improved accessibility and usability, ensuring better alignment with organizational objectives.
+
+# Data Quality Control for Lost and Found Pets Analysis
+
+## Project Description
+Data quality control is a crucial step to ensure the dataset's accuracy, completeness, and reliability for analysis. In this project, the quality control process focused on validating the cleaned dataset for completeness, uniqueness, and sensitivity before proceeding to further analysis. The processed data was categorized into **Passed** and **Failed** categories, enabling structured workflows for analysis.
+
+### Project Title
+**Data Quality Control for Lost and Found Pets Dataset**
+
+### Objective
+To ensure the dataset adheres to predefined quality standards, such as:
+1. Completeness of critical attributes.
+2. Uniqueness of records to avoid duplication.
+3. Identification of sensitive data for compliance and security.
+
+---
+
+## Methodology
+
+### 1. Data Profiling
+- Reviewed dataset to identify missing values, duplicates, and inconsistent formatting.
+- Assessed columns `Breed`, `Color`, and `Sex` for completeness and uniqueness.
+
+### 2. Data Cleaning
+- Handled missing and invalid values during the earlier data cleaning phase.
+- Addressed:
+  - Special characters in `Name` and `Color`.
+  - Inconsistent formats for `Sex` and `Date`.
+
+### 3. Data Validation Rules
+- **Completeness**:
+  - Ensured all rows in `Breed`, `Sex`, and `State` columns are filled.
+- **Uniqueness**:
+  - Verified that records are unique based on `Name`, `Date`, `Sex`, and `Breed`.
+- **Sensitive Data Detection**:
+  - Checked for potential PII (e.g., addresses, personal identifiers) using AWS Glue's transformation rules.
+
+### 4. Segregation of Data
+- **Passed Data**: Records meeting quality criteria stored in the **Passed** folder.
+- **Failed Data**: Incomplete or inconsistent records flagged and stored in the **Failed** folder.
+
+### 5. Output
+- Cleaned and validated data stored in:
+  - **Passed**: `s3://vcaci-trf-rah/lost_and_found_pets/data-quality/Passed/`
+  - **Failed**: `s3://vcaci-trf-rah/lost_and_found_pets/data-quality/Failed/`
+
+---
+
+## Tools and Technologies
+- **AWS Glue**: Data quality transformation and sensitive data detection.
+- **AWS S3**: Storage for cleaned and validated datasets.
+- **File Formats**: Parquet for system use; CSV for end-user accessibility.
+
+---
+
+
